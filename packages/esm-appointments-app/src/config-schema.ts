@@ -106,6 +106,11 @@ export const configSchema = {
       _validators: [validators.oneOf(appointmentColumnTypes)],
     },
   },
+  filterProvidersByAppointmentSupportedEnabled: {
+    _type: Type.Boolean,
+    _default: true,
+    _description: 'Whether to filter providers by appointment supported enabled',
+  },
 };
 
 export interface ConfigObject {
@@ -126,6 +131,7 @@ export interface ConfigObject {
   includePhoneNumberInExcelSpreadsheet: boolean;
   patientIdentifierType: string;
   showUnscheduledAppointmentsTab: boolean;
+  filterProvidersByAppointmentSupportedEnabled: boolean;
 }
 
 export type AppointmentTableColumn = {
