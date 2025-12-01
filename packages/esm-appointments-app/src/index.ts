@@ -132,3 +132,8 @@ export const homeAppointmentsTile = getAsyncLifecycle(
   () => import('./homepage-tile/appointments-tile.component'),
   options,
 );
+
+export const printPrescriptionPreviewModal = getAsyncLifecycle(
+  () => import('./prescription/print-prescription-preview.modal'),
+  options,
+);

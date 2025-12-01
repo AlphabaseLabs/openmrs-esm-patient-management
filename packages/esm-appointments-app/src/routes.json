@@ -133,6 +133,10 @@
     {
       "name": "cancel-appointment-modal",
       "component": "cancelAppointmentModal"
+    },
+    {
+      "name": "print-prescription-preview-modal",
+      "component": "printPrescriptionPreviewModal"
     }
   ],
   "workspaces": [

@@ -24,7 +24,7 @@ import {
   TableRow,
   Tile,
 } from '@carbon/react';
-import { Download } from '@carbon/react/icons';
+import { Download, Printer } from '@carbon/react/icons';
 import {
   ConfigurableLink,
   formatDate,
@@ -35,6 +35,7 @@ import {
   useLayoutType,
   launchWorkspace,
   usePagination,
+  showModal,
 } from '@openmrs/esm-framework';
 import { EmptyState } from '../../empty-state/empty-state.component';
 import { exportAppointmentsToSpreadsheet } from '../../helpers/excel';
@@ -79,6 +80,13 @@ const AppointmentsTable: React.FC<AppointmentsTableProps> = ({
     key: columnKey,
   }));
 
+  const handlePrintPrescription = (appointment: Appointment) => {
+    const dispose = showModal('print-prescription-preview-modal', {
+      onClose: () => dispose(),
+      appointment,
+    });
+  };
+
   const rowData = results?.map((appointment) => ({
     id: appointment.uuid,
     patientName: (
@@ -98,6 +106,17 @@ const AppointmentsTable: React.FC<AppointmentsTableProps> = ({
     location: appointment.location?.name,
     provider: appointment.providers?.[0]?.name ?? '--',
     status: <AppointmentActions appointment={appointment} />,
+    prescription: (
+      <Button
+        kind="ghost"
+        size={responsiveSize}
+        renderIcon={Printer}
+        iconDescription={t('printPrescription', 'Print Prescription')}
+        hasIconOnly
+        onClick={() => handlePrintPrescription(appointment)}
+        tooltipPosition="left"
+      />
+    ),
   }));
 
   if (isLoading) {

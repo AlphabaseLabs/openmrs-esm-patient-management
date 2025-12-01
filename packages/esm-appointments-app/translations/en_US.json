@@ -141,6 +141,7 @@
   "service": "Service",
   "serviceName": "Service name",
   "serviceUnavailable": "Appointment time is outside of service hours",
+  "serviceType": "Service type",
   "status": "Status",
   "SUN": "SUN",
   "THUR": "THUR",
@@ -159,5 +160,6 @@
   "vitals": "Vitals",
   "WED": "WED",
   "week": "Week",
-  "yes": "Yes"
+  "yes": "Yes",
+  "prescription": "Rx Sheet"
 }
